@@ -4,15 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RodapeComponent } from './componentes/rodape/rodape.component';
+import {CabecalhoModule} from "./componentes/cabecalho/cabecalho.module";
+import {RodapeModule} from "./componentes/rodape/rodape.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CabecalhoModule,
+    RodapeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,21 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AutenticacaoGuard} from "./autenticacao/autenticacao.guard";
+import {LoginGuard} from "./autenticacao/login.guard";
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home',
+    canLoad: [LoginGuard]
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('./home/home.module').then((module) => module.HomeModule),
+    loadChildren: () => import('./home/home.module').then((module) => module.HomeModule),
   },
   {
     path: 'animais',
-    loadChildren: () =>
-      import('./animais/animais.module').then((module) => module.AnimaisModule),
+    loadChildren: () => import('./animais/animais.module').then((module) => module.AnimaisModule),
+    canLoad: [AutenticacaoGuard]
   },
 ];
 
@@ -23,4 +25,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

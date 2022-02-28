@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home',
-    canLoad: [LoginGuard]
+    redirectTo: 'home'
   },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((module) => module.HomeModule),
+    canLoad: [LoginGuard]
   },
   {
     path: 'animais',

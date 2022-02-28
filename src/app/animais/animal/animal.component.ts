@@ -9,9 +9,9 @@ const API = environment.apiUrl;
   styleUrls: ['./animal.component.css']
 })
 export class AnimalComponent implements OnInit {
-
   private urlOriginal = '';
   @Input() descricao = '';
+
   @Input() set url(url: string) {
     if (url.startsWith('data')) this.urlOriginal = url;
     else this.urlOriginal = `${API}/imgs/${url}`;
@@ -21,9 +21,9 @@ export class AnimalComponent implements OnInit {
     return this.urlOriginal;
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }
